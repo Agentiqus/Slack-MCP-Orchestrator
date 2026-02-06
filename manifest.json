@@ -1,0 +1,50 @@
+{
+  "_metadata": {
+    "major_version": 2,
+    "minor_version": 1
+  },
+  "display_information": {
+    "name": "MCP Orchestrator",
+    "description": "Connect AI tools to Slack with scoped permissions",
+    "long_description": "MCP Orchestrator lets workspace members connect AI tools like Cursor and Claude Desktop to Slack through the Model Context Protocol (MCP). Each user controls their own read/write permissions and generates a scoped configuration with a personal token. The app enforces permissions server-side so the Slack bot token never leaves the server. Admins install once; every user self-serves from the App Home tab.",
+    "background_color": "#1a1a2e"
+  },
+  "features": {
+    "app_home": {
+      "home_tab_enabled": true,
+      "messages_tab_enabled": false,
+      "messages_tab_read_only_enabled": false
+    },
+    "bot_user": {
+      "display_name": "MCP Orchestrator",
+      "always_online": true
+    }
+  },
+  "oauth_config": {
+    "redirect_urls": [
+      "https://slack-mcp-orchestrator.fly.dev/slack/oauth_redirect"
+    ],
+    "scopes": {
+      "bot": [
+        "channels:history",
+        "channels:read",
+        "chat:write",
+        "commands",
+        "users:read"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "request_url": "https://slack-mcp-orchestrator.fly.dev/slack/events",
+      "bot_events": ["app_home_opened", "app_uninstalled"]
+    },
+    "interactivity": {
+      "is_enabled": true,
+      "request_url": "https://slack-mcp-orchestrator.fly.dev/slack/events"
+    },
+    "org_deploy_enabled": true,
+    "socket_mode_enabled": true,
+    "token_rotation_enabled": true
+  }
+}

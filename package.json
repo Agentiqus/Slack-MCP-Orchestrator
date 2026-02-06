@@ -1,0 +1,48 @@
+{
+  "name": "@agentiqus/slack-mcp-orchestrator",
+  "version": "1.0.0",
+  "description": "Slack app that lets users generate scoped MCP configs to connect AI tools to Slack",
+  "main": "dist/app.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node ./dist/app.js",
+    "start:prod": "node ./dist/app.js",
+    "lint": "npx @biomejs/biome check *.ts listeners src",
+    "lint:fix": "npx @biomejs/biome check --write *.ts listeners src"
+  },
+  "author": "Agentiqus",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "mcp",
+    "model-context-protocol",
+    "ai-tools",
+    "orchestrator"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentiqus/slack-mcp-orchestrator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agentiqus/slack-mcp-orchestrator/issues"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.6.0",
+    "better-sqlite3": "^12.6.2",
+    "dotenv": "~17.2.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^7.5.1",
+    "jsonwebtoken": "^9.0.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@slack/cli-hooks": "^1.3.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
